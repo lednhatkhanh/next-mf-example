@@ -1,0 +1,22 @@
+{
+  "name": "mf-blog",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "./create",
+    "./home",
+    "./shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"cd create && npm run dev\" \"cd home && npm run dev\"",
+    "build": "concurrently \"cd create && npm run build\" \"cd home && npm run build\"",
+    "start": "concurrently \"cd create && npm run start\" \"cd home; npm run start\""
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
