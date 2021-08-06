@@ -5,13 +5,12 @@
   "private": true,
   "workspaces": [
     "./create",
-    "./home",
-    "./shared"
+    "./home"
   ],
   "scripts": {
-    "dev": "concurrently \"cd create && npm run dev\" \"cd home && npm run dev\"",
-    "build": "concurrently \"cd create && npm run build\" \"cd home && npm run build\"",
-    "start": "concurrently \"cd create && npm run start\" \"cd home; npm run start\""
+    "dev": "concurrently \"cd create && yarn dev\" \"cd home && yarn dev\"",
+    "build": "concurrently \"cd create && yarn build\" \"cd home && yarn build\"",
+    "start": "concurrently \"cd create && yarn start\" \"cd home; yarn start\""
   },
   "dependencies": {
     "concurrently": "^6.2.0"

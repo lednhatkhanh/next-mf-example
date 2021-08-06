@@ -4,9 +4,7 @@ module.exports = withFederatedSidecar({
   name: "create",
   filename: "static/chunks/remoteEntry.js",
   exposes: {
-    "./create": "./src/pages/create.tsx",
-    "./pages-map": "./pages-map.ts",
-    "./Test": "./src/components/Test.tsx",
+    "./CreateForm": "./src/components/CreateForm",
   },
   shared: {
     react: {

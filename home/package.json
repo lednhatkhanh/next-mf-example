@@ -11,7 +11,6 @@
   "dependencies": {
     "@module-federation/nextjs-mf": "^3.1.2",
     "next": "11.0.2-canary.26",
-    "nextjs-shared": "*",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "tailwindcss": "^2.2.7"

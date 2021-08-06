@@ -2,15 +2,19 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { Header } from "../components";
 
-const Test = dynamic(
+const CreateForm = dynamic(
   () => {
-    const mod = import("create/Test").then((mod) => mod.Test);
+    const mod = import("create/CreateForm").then((mod) => mod.CreateForm);
     return mod;
   },
   { ssr: false },
 );
 
 export default function Home() {
+  function handleSubmit({ title, content }: { title: string; content: string }) {
+    console.log(title, content);
+  }
+
   return (
     <>
       <Head>
@@ -20,12 +24,10 @@ export default function Home() {
       <Header />
 
       <main>
-        <Test />
+        <div className="flex items-center justify-center pt-40">
+          <CreateForm onSubmit={handleSubmit} />
+        </div>
       </main>
     </>
   );
 }
-
-Home.getInitialProps = async () => {
-  return {};
-};

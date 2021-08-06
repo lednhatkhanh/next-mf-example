@@ -14,10 +14,6 @@ export function Header() {
         <Link href="/about">
           <a>About</a>
         </Link>
-
-        <Link href="/create">
-          <a>Create</a>
-        </Link>
       </header>
     </>
   );
