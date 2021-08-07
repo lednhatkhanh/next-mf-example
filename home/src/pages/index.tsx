@@ -1,18 +1,29 @@
+import * as React from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { Header } from "../components";
+import { FilterInput, Header, PostList } from "../components";
+import { Post } from "../types";
 
-const CreateForm = dynamic(
-  () => {
-    const mod = import("create/CreateForm").then((mod) => mod.CreateForm);
-    return mod;
+type CreateFormProps = {
+  onSubmit?: (data: { title: string; content: string }) => void;
+};
+
+const CreateForm = dynamic<CreateFormProps>(
+  () => window["create"].get("./CreateForm").then(factory => factory().CreateForm),
+  {
+    ssr: false,
   },
-  { ssr: false },
 );
 
 export default function Home() {
-  function handleSubmit({ title, content }: { title: string; content: string }) {
-    console.log(title, content);
+  const [posts, setPosts] = React.useState<Post[]>([]);
+
+  function handleSubmit(newPost: { title: string; content: string }) {
+    setPosts(current => [...current, newPost]);
+  }
+
+  function handleDelete(title: string) {
+    setPosts(current => current.filter(filtering => filtering.title !== title));
   }
 
   return (
@@ -27,6 +38,10 @@ export default function Home() {
         <div className="flex items-center justify-center pt-40">
           <CreateForm onSubmit={handleSubmit} />
         </div>
+
+        <FilterInput />
+
+        <PostList onDelete={handleDelete} posts={posts} />
       </main>
     </>
   );

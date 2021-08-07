@@ -1,11 +1,12 @@
-declare module "create/CreateForm" {
-  import * as React from "react";
-
-  type CreateFormProps = {
-    onSubmit?: (data: { title: string; content: string }) => void;
-  };
-
-  const CreateForm: React.FC<CreateFormProps>;
-
-  export { CreateForm };
+interface Window {
+  create: NextFModule;
+  list: VueFModule;
 }
+
+type VueFModule = {
+  get: (path: string) => Promise<() => { [key: string]: unknown }>;
+};
+
+type NextFModule = {
+  get: (path: string) => Promise<() => Record<string, React.ComponentType>>;
+};

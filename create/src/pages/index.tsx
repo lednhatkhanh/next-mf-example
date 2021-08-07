@@ -2,21 +2,8 @@ import * as React from "react";
 import dynamic from "next/dynamic";
 import { CreateForm } from "../components";
 
-const Header = dynamic(
-  () => {
-    const mod = import("home/Header").then((mod) => mod.Header);
-    return mod;
-  },
-  { ssr: false },
-);
-
-const Footer = dynamic(
-  () => {
-    const mod = import("home/Footer").then((mod) => mod.Footer);
-    return mod;
-  },
-  { ssr: false },
-);
+const Header = dynamic<{}>(() => window.home.get("home/Header").then(factory => factory().Header), { ssr: false });
+const Footer = dynamic<{}>(() => window.home.get("home/Footer").then(factory => factory().Footer), { ssr: false });
 
 export default function IndexPage() {
   return (

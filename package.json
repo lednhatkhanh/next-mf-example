@@ -5,12 +5,13 @@
   "private": true,
   "workspaces": [
     "./create",
-    "./home"
+    "./home",
+    "./list"
   ],
   "scripts": {
-    "dev": "concurrently \"cd create && yarn dev\" \"cd home && yarn dev\"",
-    "build": "concurrently \"cd create && yarn build\" \"cd home && yarn build\"",
-    "start": "concurrently \"cd create && yarn start\" \"cd home; yarn start\""
+    "dev": "concurrently \"cd create && yarn dev\" \"cd home && yarn dev\" \"cd list && yarn dev\"",
+    "build": "concurrently \"cd create && yarn build\" \"cd home && yarn build\" \"cd list && yarn build\"",
+    "start": "concurrently \"cd create && yarn start\" \"cd home; yarn start\" \"cd list && yarn start\""
   },
   "dependencies": {
     "concurrently": "^6.2.0"

@@ -30,6 +30,7 @@ module.exports = withFederatedSidecar({
       Object.assign(config.resolve.alias, {
         home: false,
         create: false,
+        list: false,
       });
     } else {
       config.output.publicPath = "auto";
@@ -39,6 +40,7 @@ module.exports = withFederatedSidecar({
           remotes: {
             home: "home",
             create: "create",
+            list: "list",
           },
           shared: {
             "@module-federation/nextjs-mf/lib/noop": {
