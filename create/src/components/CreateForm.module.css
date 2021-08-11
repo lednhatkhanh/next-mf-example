@@ -1,0 +1,19 @@
+.createForm {
+  @apply flex flex-col w-96 gap-y-4;
+}
+
+.title {
+  @apply text-4xl font-medium text-center;
+}
+
+.label {
+  @apply font-medium;
+}
+
+.input {
+  @apply border border-pink-500 rounded;
+}
+
+.submitButton {
+  @apply px-2 py-1 font-bold text-white transition duration-300 bg-pink-700 rounded hover:bg-opacity-80;
+}

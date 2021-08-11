@@ -29,12 +29,13 @@ export function PostList({posts, onDelete}: Props) {
         components: {
           PostList: VPostList,
         },
+
         setup() {
           const postsRef = vue.ref([])
 
-            function handleDeleteEvent(title: string) {
-                deleteRef.current(title)
-            }
+          function handleDeleteEvent(title: string) {
+              deleteRef.current(title)
+          }
 
           return {
             posts: postsRef,

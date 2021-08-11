@@ -1,4 +1,5 @@
 import * as React from "react";
+import styles from "./CreateForm.module.css";
 
 type Props = {
   onSubmit?: (data: { title: string; content: string }) => void;
@@ -22,23 +23,20 @@ export function CreateForm({ onSubmit }: Props) {
   }
 
   return (
-    <form className="flex flex-col w-96 gap-y-4" onSubmit={handleSubmit}>
-      <h3 className="text-4xl font-medium text-center">Create post</h3>
+    <form className={styles.createForm} onSubmit={handleSubmit}>
+      <h3 className={styles.title}>Create post</h3>
 
-      <label htmlFor="title" className="font-medium">
+      <label htmlFor="title" className={styles.label}>
         Title
       </label>
-      <input name="title" className="border border-pink-500 rounded" required />
+      <input name="title" className={styles.input} required />
 
-      <label className="font-medium" htmlFor="content">
+      <label className={styles.label} htmlFor="content">
         Content
       </label>
-      <textarea name="content" className="border border-pink-500 rounded" rows={5} required />
+      <textarea name="content" className={styles.input} rows={5} required />
 
-      <button
-        type="submit"
-        className="px-2 py-1 font-bold text-white transition duration-300 bg-pink-700 rounded hover:bg-opacity-80"
-      >
+      <button type="submit" className={styles.submitButton}>
         Submit
       </button>
     </form>

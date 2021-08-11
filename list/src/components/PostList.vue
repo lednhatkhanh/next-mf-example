@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-start gap-y-4">
+  <div class="postList">
     <PostItem
       v-for="post of posts"
       :key="post.title"
@@ -32,3 +32,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.postList {
+  @apply flex flex-col items-start gap-y-4;
+}
+</style>

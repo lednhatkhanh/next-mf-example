@@ -15,6 +15,18 @@ module.exports = withFederatedSidecar({
 })({
   reactStrictMode: true,
   webpack5: true,
+  eslint: {
+    // Warning: Dangerously allow production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
   webpack(config, options) {
     const { webpack } = options;
 
