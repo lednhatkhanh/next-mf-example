@@ -14,6 +14,9 @@ module.exports = withFederatedSidecar({
       requiredVersion: false,
       singleton: true,
     },
+    ["./src/test.json"]: {
+      singleton: false,
+    },
   },
 })({
   reactStrictMode: true,
@@ -54,6 +57,9 @@ module.exports = withFederatedSidecar({
             singleton: true,
             eager: true,
             requiredVersion: false,
+          },
+          ["./src/test.json"]: {
+            singleton: false,
           },
         },
       }),

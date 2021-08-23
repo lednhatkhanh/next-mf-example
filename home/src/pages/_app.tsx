@@ -6,7 +6,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 MyApp.getInitialProps = async () => {
+  const variable = 'test1';
   await import('../test.json');
+  await import(`../${variable}.json`);
   return {};
 }
 
